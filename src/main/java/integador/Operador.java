@@ -19,10 +19,6 @@ public class Operador {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int idOperador;
 
-    @OneToMany
-    private List<Incidente> incidente;
-
-
     @Column(name = "Nombre_Apellido")
     private String nombreYApellidoOperador;
 
@@ -34,6 +30,10 @@ public class Operador {
 
     @Column(name = "CUIT")
     private int cuit;
+
+    @OneToMany
+    private List<Incidente> incidente;
+
 
 
 }
