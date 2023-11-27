@@ -12,21 +12,24 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Tipo_Incidente")
+@Table(name = "TIPO_PROBLEMA")
 
 public class TipoIncidente {
 
     @OneToOne
-    @JoinColumn(name="Tec_Especialidades_idTec_Especialidades", referencedColumnName = "idTec_Especialidades")
+    @JoinColumn(name="idTIPO_PROBLEMA", referencedColumnName = "idESPECIALIDAD")
     private TecEspecialidad incidenteEspecialidad;
 
-    @OneToMany
-    private List<Incidente> incidentes;
+    @ManyToOne
+    @JoinColumn(name= "INCIDENTE_idINCIDENTE", referencedColumnName= "idINCIDENTE")
+    private Incidente incidentes;
+
+
 
     @Id
-    @Column(name ="idTipo_Incidente")
+    @Column(name ="idTIPO_PROBLEMA")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int idTipoIncidente;
+    private int idTipoProblema;
 
 
 

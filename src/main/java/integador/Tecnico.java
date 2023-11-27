@@ -6,13 +6,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Tecnicos")
+@Table(name = "TECNICO")
 public class Tecnico {
 
     @OneToMany
@@ -23,24 +24,33 @@ public class Tecnico {
 
 
     @Id
-    @Column(name= "idTecnicos")
+    @Column(name= "idTECNICO")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int idTecnico;
 
-    @Column(name ="Nombre_Apellido")
-    private String nombreYApellidoTecnico;
+    @Column(name ="nombre")
+    private String nombreTecnico;
 
-    @Column(name = "DNI")
+    @Column(name ="apellido")
+    private String apellidoTecnico;
+
+    @Column(name = "dni")
     private int dniTecnico;
 
-    @Column(name = "Edad")
-    private int edadTecnico;
+    @Column(name = "email")
+    private int emailTecnico;
 
-    @Column(name = "Turno")
-    private String turnoTecnico;
+    @Column(name = "telefono")
+    private int telefonoTecnico;
 
-    @Column(name = "Disponibilidad")
-    private boolean disponibilidad;
+    @Column(name = "fecha_nacimiento")
+    private Date fechaNacTecnico;
+
+    @Column(name = "fecha_alta")
+    private Date fechaAltaTecnico;
+
+    @Column(name = "fecha_baja")
+    private Date fechaBajaTecnico;
 
 
 }

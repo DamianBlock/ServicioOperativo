@@ -4,13 +4,15 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Date;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Clientes")
+@Table(name = "CLIENTE")
 public class Cliente {
 
     @ManyToMany
@@ -20,32 +22,27 @@ public class Cliente {
     private List<Incidente> incidente;
 
     @Id
-    @Column(name = "idClientes")
+    @Column(name = "idCliente")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int idCliente;
 
-    @Column(name = "Nombre_Apellido")
-    private String nombreYApellidoCliente;
+    @Column(name = "razonSocial")
+    private String razonSocial;
 
-    @Column(name = "DNI")
-    private int dniCliente;
+    @Column(name = "cuit")
+    private int cuitCliente;
 
     @Column(name = "CUIL")
     private int cuilCliente;
 
-    @Column(name = "Edad")
-    private int edadCliente;
+    @Column(name = "email")
+    private int emailCliente;
 
-    @Column(name = "Telefono")
+    @Column(name = "telefono")
     private int telefonoCliente;
 
-    @Column(name = "Email")
-    private String emailCliente;
+    @Column(name = "Fecha_Nacimiento")
+    private Date fechaNacCliente;
 
-    @Column(name = "Direccion")
-    private String direccionCliente;
-
-    @Column(name = "Localidad")
-    private String localidadCliente;
 
 }

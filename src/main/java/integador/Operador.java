@@ -11,28 +11,29 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Operador")
+@Table(name = "OPERADOR")
 
 public class Operador {
     @Id
-    @Column(name = "idOperador")
+    @Column(name = "idOPERADOR")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int idOperador;
 
-    @Column(name = "Nombre_Apellido")
-    private String nombreYApellidoOperador;
+    @Column(name = "Nombre")
+    private String nombreOperador;
 
-    @Column(name = "Turno")
-    private String turno;
+    @Column(name = "Apellido")
+    private String apellidoOperador;
 
-    @Column(name = "DNI")
-    private int dni;
+    @Column(name ="domicilio")
+    private String domicilioOperador;
 
-    @Column(name = "CUIT")
-    private int cuit;
+    @Column(name ="telefono")
+    private double telefonoOperador;
 
     @OneToMany
-    private List<Incidente> incidente;
+    @JoinColumn(name = "OPERADOR_idOPERADOR", referencedColumnName = "idOPERADOR")
+    private List<Incidente> incidentes;
 
 
 

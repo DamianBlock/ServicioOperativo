@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Tec_Especialidades")
+@Table(name = "ESPECIALIDAD")
 
 public class TecEspecialidad {
 
@@ -24,12 +24,15 @@ public class TecEspecialidad {
     private TipoIncidente tipoIncidente;
 
     @Id
-    @Column(name = "idTec_Especialidades")
+    @Column(name = "idESPECIALIDAD")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int idTecEspecialidad;
 
-    @Column(name = "Tipo/Nombre")
-    private String nombreTipo;
+    @Column(name = "nombre_Especialidad")
+    private String nombreEspecialidad;
+
+    @Column(name = "descripcion")
+    private String descripcionEspecialidad;
 
 
 }

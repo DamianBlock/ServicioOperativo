@@ -12,21 +12,25 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Servicios")
+@Table(name = "SERVICIO")
 public class Servicio {
+
+    @Id
+    @Column(name = "idSERVICIO")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int idServicio;
+
+    @Column(name = "nombre_Servicio")
+    private String nombreServicio;
+
+    @Column(name = "descripcion")
+    private String descripcionServicio;
+
 
     @ManyToMany (mappedBy = "servicios")
     private List<Cliente> clientes;
 
     @OneToMany
     private List<Incidente> incidente;
-
-    @Id
-    @Column(name = "idServicios")
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int idServicio;
-
-    @Column(name = "Nombre/Tipo")
-    private String nombreServicio;
 
 }

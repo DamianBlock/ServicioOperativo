@@ -5,11 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Incidente")
+@Table(name = "INCIDENTE")
 
 public class Incidente {
     @Id
@@ -18,38 +21,41 @@ public class Incidente {
     private int idIncidente;
 
     @ManyToOne
-    @JoinColumn(name= "Operador_idOperador", referencedColumnName= "idOperador")
+    @JoinColumn(name= "OPERADOR_idOPERADOR", referencedColumnName= "idOPERADOR")
     private Operador operador;
 
     @ManyToOne
-    @JoinColumn(name= "Servicios_idServicios", referencedColumnName= "idServicios")
+    @JoinColumn(name= "SERVICIO_idSERVICIO", referencedColumnName= "idSERVICIO")
     private Servicio servicio;
 
     @ManyToOne
-    @JoinColumn(name= "Clientes_idClientes", referencedColumnName= "idClientes")
+    @JoinColumn(name= "CLIENTE_idCliente", referencedColumnName= "idCliente")
     private Cliente cliente;
 
     @ManyToOne
-    @JoinColumn(name= "Tecnicos_idTecnicos", referencedColumnName= "idTecnicos")
+    @JoinColumn(name= "TECNICO_idTECNICO", referencedColumnName= "idTECNICO")
     private Tecnico tecnico;
 
-    @ManyToOne
-    @JoinColumn(name= "Tipo_Incidente_idTipo_Incidente", referencedColumnName= "idTipo_Incidente")
-    private TipoIncidente tipoIncidente;
+    @OneToMany
+    private List<TipoIncidente> tipoIncidentes;
 
 
-    @Column(name = "FechaInicial")
-    private String fechaInicial;
 
-    @Column(name = "FechaFinal")
-    private String fechaResolucion;
 
-    @Column(name = "Lugar")
-    private String lugar;
+    @Column(name = "descripcion")
+    private String descripcionIncidente;
 
-    @Column(name = "Descripcion")
-    private String descripcion;
+    @Column(name = "estado")
+    private String estado;
 
-    @Column(name = "Estado")
-    private boolean estado;
+    @Column(name = "fecha_de_inicio")
+    private LocalDate fechaDeInicio;
+
+    @Column(name = "fecha_de_resolucion_estimada")
+    private LocalDate fechaDeResolucionEstimada;
+
+    @Column(name = "fecha_de_resolucion_real")
+    private LocalDate fechaDeResolucionReal;
+
+
 }
